@@ -8,8 +8,6 @@ class CreateEndUsers < ActiveRecord::Migration[5.2]
       t.string :postal_code
       t.string :address
       t.string :phone_number
-      t.string :email, default: "", null: "false"
-      t.string :encrypted_password, default: "", null: "false"
       t.boolean :is_deleted, default: "false"
       t.timestamps
     end

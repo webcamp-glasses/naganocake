@@ -12,6 +12,7 @@ class OrderDetail < ApplicationRecord
   # 個数と購入時価格は整数型でないとダメ
   validates :quantity, :price, numericality: { integer_only: true }
 
+  # 税込の商品価格と個数をかけた小計
   def sub_price
     (self.add_tax_price * quantity).round
   end

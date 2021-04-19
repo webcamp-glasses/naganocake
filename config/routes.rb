@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
      # scopeを用いてファイル構成を変えないまま任意のURLを指定する
-    devise_scope :admin do
+    devise_scope :admins do
       get '/admin/sign_in' => 'devise/sessions#new', as: :new_admin_session
       post '/admin/sign_in' => 'devise/sessions#create', as: :admin_session
       delete '/admin/sign_out' => 'devise/sessions#destroy', as: :destroy_admin_session
@@ -19,10 +19,16 @@ Rails.application.routes.draw do
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
 
-  # 会員側のルーティングを設定（namespaceで管理ファイルを棲み分け）
-  namespace :end_user do
+  # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
+  scope moodule: :end_user do
 
-    devise_for :end_users
+    # 必要なルーティングだけはかれるように設定
+    devise_for :end_users, controllers: {
+      registrations: 'end_users/registrations',
+      sessions: 'end_users/sessions',
+      passwords: 'end_users/passwords'
+    }
+
     root 'homes#top'
     get '/about' => 'homes#about'
 

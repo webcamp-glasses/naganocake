@@ -6,6 +6,7 @@ class Admins::ProductsController < ApplicationController
   end
 
   def create
+    @product= Product.new
   end
 
   def show

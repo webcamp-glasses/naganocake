@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   # 管理者ページへの直打ちを制限する設定（要テスト！！！）
-  before_action :authenticate_admin!
+  #before_action :authenticate_admin!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

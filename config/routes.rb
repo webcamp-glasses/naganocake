@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   end
 
   # 管理者側のトップページ
-  get '/admin' => 'admins/homes#top'
+    
 
   # 管理者側のルーティングを設定（namespaceで管理ファイルを棲み分け）
   namespace :admins do
     # トップページは「注文履歴の一覧画面」とする
+    get '/' => 'homes#top'
     resources :orders, only: [ :show, :update ]
     get '/admin/orders/:id/order_details/:id' => 'order_details#update'
     resources :end_users, only: [ :index, :show, :edit, :update ]
@@ -21,12 +22,13 @@ Rails.application.routes.draw do
   end
 
   # end_user側のトップページとアバウトページ
-  get '/' => 'end_users/homes#top'
-  get '/about' => 'end_users/homes#about'
+  
+  
 
   # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
-  scope module: :end_user do
-
+  scope module: :end_users do
+    get '/' => 'homes#top'
+    get '/about' => 'homes#about'
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
       registrations: 'end_users/registrations',

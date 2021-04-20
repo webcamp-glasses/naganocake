@@ -19,8 +19,9 @@ Rails.application.routes.draw do
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
 
+
   # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
-  scope moodule: :end_user do
+  scope module: :end_user do
 
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
@@ -29,8 +30,7 @@ Rails.application.routes.draw do
       passwords: 'end_users/passwords'
     }
 
-    root 'homes#top'
-    get '/about' => 'homes#about'
+    
 
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do

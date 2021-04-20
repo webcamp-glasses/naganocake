@@ -1,20 +1,42 @@
 class Admins::ProductsController < ApplicationController
-  def index
-  end
 
-  def new
-  end
+    def index
+      @products = Product.all
+    end
 
-  def create
-    @product= Product.new
-  end
+    def new
+      @produt = Produt.new
+    end
 
-  def show
-  end
+    def create
+      @product= Product.new(product_params)
+      if @product.save
+        #商品を新規登録成功後その商品の詳細ページへ遷移
+        redirect_to admin_product_path(@product_params)
+      else
+        #バリデーションに引っ掛かる場合は新規登録画面へ遷移
+        render :new
+      end
 
-  def edit
-  end
+    end
 
-  def update
-  end
+    def show
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    private
+
+    def product_params
+     params.require(:product)permit(:genre_id, :name, :description, :price, :image_id, :is_active)
+    end
+
+    def set_genre
+     @genres = Genre.all
+    end
+
 end

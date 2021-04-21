@@ -1,11 +1,12 @@
 class Admins::ProductsController < ApplicationController
+  before_action :set_genres, only: [:index, :new, :edit, :create,:update]
 
     def index
       @products = Product.all
     end
 
     def new
-      @produt = Produt.new
+      @product = Product.new
     end
 
     def create
@@ -32,11 +33,11 @@ class Admins::ProductsController < ApplicationController
     private
 
     def product_params
-     params.require(:product)permit(:genre_id, :name, :description, :price, :image_id, :is_active)
+     params.require(:product).permit(:genre_id, :name, :description, :price, :image_id, :is_active)
     end
 
-    def set_genre
-     @genres = Genre.all
+    def set_genres
+     @genre = Genre.all
     end
 
 end

@@ -22,7 +22,7 @@
           <div class="form-group">
             <label class="col-xl-6">ジャンル名</label>
             <!--プルダウン検索フォーム追加-->
-            <%= f.collection_select(:genre , @genres, :name, prompt: "-- 選択してください --", class: "col-sm-9 genre_id") %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %>
           </div>
 
           <div class="form-group">

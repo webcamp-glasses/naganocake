@@ -5,23 +5,29 @@ class Admins::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new
-    @genre.save
+    @genre = Genre.new(genre_params)
+    if @genre.save
       # 遷移先は特に記述がないのでジャンル一覧ページに遷移させます
-     redirect_to request.referer
+      redirect_to request.referer
+    else
+      @genres = Genre.all
+      render :index
+    end
+
   end
 
   def edit
+    @genre = genre.find(params[:id])
   end
 
   def update
   end
-  
+
   private
-  
+
   def genre_params
-    params.require(:genre).permit(:genre_id, :name)
+    params.require(:genre).permit(:name)
   end
-  
+
 end
 

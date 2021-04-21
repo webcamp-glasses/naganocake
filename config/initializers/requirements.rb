@@ -1,0 +1,1 @@
+require Rails.root.join(“app/controllers/end_users/homes_controller.rb”)

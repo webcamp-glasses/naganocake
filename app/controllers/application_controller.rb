@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
     # ログイン後の遷移先の設定
     def after_sign_in_path_for(resource)
       # 会員がログインした場合の遷移先
-      if end_user_sign_in?
+      if current_end_user
         root_path(resource)
       # 管理者がログインした場合の遷移先
       else
-        admin_path(resource)
+        admins_path(resource)
       end
     end
 

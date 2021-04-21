@@ -1,21 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
-    sessions: 'admins/sessions',
-    passwords: 'admins/passwords'
-  }
-
-  # # deviseをマッピングするとともに、設定をskip
-  # devise_for :admins, skip: :all
-  # # scopeを用いてファイル構成を変えないまま任意のURLを指定する
-  # devise_scope :admins do
-  #   get '/admins/sign_in' => 'sessions#new', as: :new_admins_session
-  #   post '/admins/sign_in' => 'sessions#create', as: :admins_session
-  #   delete '/admins/sign_out' => 'sessions#destroy', as: :destroy_admins_session
-  # end
-
-
+      sessions: 'admins/sessions',
+      passwords: 'admins/passwords'
+    }
 
   # 管理者側のルーティングを設定（namespaceで管理ファイルを棲み分け）
   namespace :admins do

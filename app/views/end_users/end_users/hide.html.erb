@@ -1,2 +1,13 @@
-<h1>EndUsers::EndUsers#hide</h1>
-<p>Find me in app/views/end_users/end_users/hide.html.erb</p>
+<div>
+  <h3>
+    <strong>本当に退会しますか？</strong>
+  </h3>
+  
+  退会すると、会員登録情報や<br>
+  これまでの購入履歴を閲覧できなくなります。<br>
+  退去する場合は、「退去する」をクリックしてください。<br>
+  
+  <%= link_to "退会しない", end_users_path, class: "btn btn-primary" %>
+  <%= link_to "退会する", out_end_users_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
+  
+</div>

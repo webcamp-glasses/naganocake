@@ -36,9 +36,9 @@ Rails.application.routes.draw do
     resource :end_users, only:[ :show, :edit, :update ] do
       collection do
         # 退会を確認する画面の表示
-        get '/end_users/hide' => 'end_users#hide'
+        get 'hide' => 'end_users#hide'
         # 退会処理を行うURLを設定
-        patch '/end_users/out' => 'end_users#out'
+        patch 'out' => 'end_users#out'
       end
     end
 

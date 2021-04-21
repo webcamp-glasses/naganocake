@@ -1,18 +1,27 @@
 Rails.application.routes.draw do
 
+  devise_for :admins, controllers: {
+    registrations: 'admins/registrations',
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords'
+  }
+
+  # # deviseをマッピングするとともに、設定をskip
+  # devise_for :admins, skip: :all
+  # # scopeを用いてファイル構成を変えないまま任意のURLを指定する
+  # devise_scope :admins do
+  #   get '/admins/sign_in' => 'sessions#new', as: :new_admins_session
+  #   post '/admins/sign_in' => 'sessions#create', as: :admins_session
+  #   delete '/admins/sign_out' => 'sessions#destroy', as: :destroy_admins_session
+  # end
+
+
+
   # 管理者側のルーティングを設定（namespaceで管理ファイルを棲み分け）
-  namespace :admin do
-
-     # scopeを用いてファイル構成を変えないまま任意のURLを指定する
-    # devise_scope :admins do
-    devise_for :admins do
-      get '/admin/sign_in' => 'devise/sessions#new', as: :new_admin_session
-      post '/admin/sign_in' => 'devise/sessions#create', as: :admin_session
-      delete '/admin/sign_out' => 'devise/sessions#destroy', as: :destroy_admin_session
-    end
-
-    # トップページは「注文履歴の一覧画面」とする
+  namespace :admins do
+    # 管理者側のトップページ
     get '/' => 'homes#top'
+    # トップページは「注文履歴の一覧画面」とする
     resources :orders, only: [ :show, :update ]
     get '/admin/orders/:id/order_details/:id' => 'order_details#update'
     resources :end_users, only: [ :index, :show, :edit, :update ]
@@ -20,9 +29,9 @@ Rails.application.routes.draw do
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
 
+
   # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
-  # scope moodule: :end_user do
-  scope module: :end_user do
+  scope module: :end_users do
 
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
@@ -31,7 +40,8 @@ Rails.application.routes.draw do
       passwords: 'end_users/passwords'
     }
 
-    root 'homes#top'
+    # end_user側のトップページとアバウトページ
+    get '/' => 'homes#top'
     get '/about' => 'homes#about'
 
     # end_users_controller郡

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, controllers: {
       sessions: 'admins/sessions',
       passwords: 'admins/passwords'
@@ -27,10 +28,10 @@ Rails.application.routes.draw do
   # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
   scope module: :end_user do
 
-
     # end_user側のトップページとアバウトページ
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    root 'products#index'
 
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do

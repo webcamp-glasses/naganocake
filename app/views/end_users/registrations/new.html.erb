@@ -1,61 +1,41 @@
-<h2>Sign up</h2>
-
 <%= form_with model: @end_user, url: end_user_registration_path do |f| %>
   <%= render "end_users/shared/error_messages", resource: resource %>
 
-  <div class="field">
     <%= f.label :"名前" %>
     <%= f.label :"(姓)" %>
     <%= f.text_field :last_name, placeholder: "令和" %>
     <%= f.label :"(名)" %>
     <%= f.text_field :first_name, placeholder: "道子" %>
-  </div>
 
-  <div class="field">
     <%= f.label :"フリガナ" %>
     <%= f.label :"(セイ)" %>
     <%= f.text_field :last_kana_name, autofocus: true, placeholder: "レイワ" %>
     <%= f.label :"(メイ)" %>
     <%= f.text_field :first_kana_name, autofocus: true, placeholder: "ミチコ" %>
-  </div>
+ 
+    <%= f.label :"メールアドレス" %>
 
-
-  <div class="field">
-    <%= f.label :"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
-  </div>
 
-  <div class="field">
     <%= f.label :"郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code, placeholder: "0000000" %>
-  </div>
 
-  <div class="field">
     <%= f.label :"住所" %>
     <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %>
-  </div>
-
-  <div class="field">
+ 
     <%= f.label :"電話番号(ハイフンなし)" %>
     <%= f.text_field :phone_number, placeholder: "00000000000" %>
-  </div>
 
-  <div class="field">
     <%= f.label :"パスワード(6文字以上)" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    (<%= @minimum_password_length %> characters minimum)
+    <% end %>
+
     <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  
+    <%= f.label :"(確認用)" %>
 
-  <div class="field">
-    <%= f.label :"(確認用)" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
     <%= f.submit "新規登録" %>
-  </div>
 <% end %>
-
 <%= render "end_users/shared/links" %>

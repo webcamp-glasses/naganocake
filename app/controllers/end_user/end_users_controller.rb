@@ -8,6 +8,11 @@ class EndUser::EndUsersController < ApplicationController
   end
 
   def out
+    @end_user = current_end_user
+    @end_user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   def edit

@@ -1,17 +1,18 @@
-<h2>商品新規登録</h2>
+
 
    <div class="container">
-        <div class="row">
-          <div class="col-xl-12 ">
-            <%= form_with model: @product, method: :post, local:true do |f| %>
-                <div class="form-group">
-                 <label class="col-xl-6">商品画像</label></br>
-                 <%= f.attachment_field :image %>
+        <div class="row col-md-4 col-md-offset-8">
+          <div class="col-12">
+              <h3 class="text-left">商品新規登録</h3>
+            <%= form_with model: @product, url: admins_products_path, local:true do |f| %>
+                <div class="form-groupd">
+                 <label class="col-xl-6">商品画像</label>
+                 <%= f.attachment_field :image, class: "image" %>
                 </div>
 
                 <div class="form-group">
                  <label class="col-xl-6">商品名</label>
-                 <%= f.text_field :name, class:"form-control col-sm-9 form-control-static name"%>
+                 <%= f.text_field :name, class:"form-control col-sm-9 form-control-static name" %>
                 </div>
 
                 <div class="form-group">
@@ -32,14 +33,14 @@
 
                 <div class="form-group">
                   <label class="col-xl-6">販売ステータス</label>
-                  <label><%= f.radio_button :is_active, "true", checked: true%>販売中</label>
-        　　　　  　　<label><%= f.radio_button :is_active, "false" %>販売停止中</label>
+                  <label><%= f.radio_button :is_active, :販売中, checked: true%>販売中</label>
+        　　　　  　　<label><%= f.radio_button :is_acive, :売り切れ %>販売停止中</label>
                 </div>
 
                 <div class="form-group">
-                  <%= f.submit "新規登録",class:"btn btn-secondary" %>
+                  <%= f.submit "新規登録",class:"col-3 btn btn-success" %>
                 </div>
-                <% end %>
+            <% end %>
             </div>
         </div>
     </div>

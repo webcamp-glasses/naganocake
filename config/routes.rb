@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-  # scopeを用いてファイル構成を変えないまま任意のURLを指定する
-  devise_scope :admins do
-    get '/admin/sign_in' => 'devise/sessions#new', as: :new_admin_session
-    post '/admin/sign_in' => 'devise/sessions#create', as: :admin_session
-    delete '/admin/sign_out' => 'devise/sessions#destroy', as: :destroy_admin_session
-  end
-
+  devise_for :admins, controllers: {
+      sessions: 'admins/sessions',
+      passwords: 'admins/passwords'
+    }
 
   # 管理者側のルーティングを設定（namespaceで管理ファイルを棲み分け）
   namespace :admins do

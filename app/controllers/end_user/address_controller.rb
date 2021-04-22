@@ -1,4 +1,4 @@
-class EndUsers::AddressController < ApplicationController
+class EndUser::AddressController < ApplicationController
   before_action :authenticate_end_user!
   def index
   end

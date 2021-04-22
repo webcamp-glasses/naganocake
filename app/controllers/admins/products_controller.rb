@@ -21,11 +21,14 @@ class Admins::ProductsController < ApplicationController
     end
 
     def show
-      
+      @product = Product.find(params[:id])
+    end
+
+    def add_tax_price
     end
 
     def edit
-      @product= Product.find(params[:id])
+      @product = Product.find(params[:id])
     end
 
     def update

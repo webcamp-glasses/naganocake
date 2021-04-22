@@ -17,9 +17,6 @@ class Order < ApplicationRecord
   validates :shipping_price, :total_price, numericality: { only_integer: true }
 
   # 商品価格に消費税率をかけたものを定義
-  def add_tax_price
-    (self.price * 1.1).round
-  end
-
+  
 
 end

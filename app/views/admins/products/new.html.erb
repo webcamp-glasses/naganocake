@@ -1,40 +1,39 @@
 
-
-   <div class="container">
-        <div class="row col-md-4 col-md-offset-8">
-          <div class="col-12">
+        <div class="row">
+          <div class="mx-auto">
               <h3 class="text-left">商品新規登録</h3>
             <%= form_with model: @product, url: admins_products_path, local:true do |f| %>
-                <div class="form-groupd">
-                 <label class="col-xl-6">商品画像</label>
+
+                <div class="form-group row">
+                 <%= f.label :"商品画像", class: "col-sm-3 control-label" %>
                  <%= f.attachment_field :image, class: "image" %>
                 </div>
 
-                <div class="form-group">
-                 <label class="col-xl-6">商品名</label>
-                 <%= f.text_field :name, class:"form-control col-sm-9 form-control-static name" %>
+                <div class="form-group row">
+                 <%= f.label :"商品名", class: "col-sm-3 control-label" %>
+                 <%= f.text_field :name, class: "form-control col-sm-9 form-control-static name" %>
                 </div>
 
-                <div class="form-group">
-                 <label class="col-xl-6">商品説明</label>
+                <div class="form-group row">
+                 <%= f.label :"商品説明", class: "col-sm-3 control-label" %>
                  <%= f.text_area :description, class:"form-control col-sm-9 form-control-static description"%>
                 </div>
 
-                <div class="form-group">
-                 <label class="col-xl-6">ジャンル名</label>
+                <div class="form-group row">
+                 <%= f.label :"ジャンル", class: "col-sm-3 control-label" %>
                     <!--プルダウン検索フォーム追加-->
                  <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %>
                 </div>
 
-                <div class="form-group">
-                  <label class="col-xl-6">税込価格</label>円
+                <div class="form-group row">
+                  <%= f.label :"税込価格", class: "col-sm-3 control-label" %>
                   <%= f.text_field :price, class:"form-control col-sm-3 form-control-static price" %>
                 </div>
 
-                <div class="form-group">
-                  <label class="col-xl-6">販売ステータス</label>
-                  <label><%= f.radio_button :is_active, :販売中, checked: true%>販売中</label>
-        　　　　  　　<label><%= f.radio_button :is_acive, :売り切れ %>販売停止中</label>
+                <div class="form-group row">
+                  <%= f.label :"販売ステータス", class: "col-sm-4 control-label" %>
+                  <%= f.radio_button :is_active, :販売中, checked: true%>販売中
+        　　   　 　  <%= f.radio_button :is_acive, :売り切れ %>販売停止中
                 </div>
 
                 <div class="form-group">
@@ -43,4 +42,3 @@
             <% end %>
             </div>
         </div>
-    </div>

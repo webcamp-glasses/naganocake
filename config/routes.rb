@@ -16,11 +16,7 @@ Rails.application.routes.draw do
     resources :products, except: [ :destroy ]
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
-
-
-  # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
-  scope module: :end_users do
-
+  
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
       registrations: 'end_users/registrations',
@@ -28,9 +24,13 @@ Rails.application.routes.draw do
       passwords: 'end_users/passwords'
     }
 
+  # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
+  scope module: :end_user do
+
     # end_user側のトップページとアバウトページ
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    root 'products#index'
 
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do

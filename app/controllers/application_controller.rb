@@ -4,21 +4,22 @@ class ApplicationController < ActionController::Base
   #before_action :authenticate_admin!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+  # protected
     # ログイン後の遷移先の設定
-    def after_sign_in_path_for(resource)
-      # 会員がログインした場合の遷移先
-      if current_end_user
-        root_path(resource)
-      # 管理者がログインした場合の遷移先
-      else
-        admins_path(resource)
-      end
-    end
 
+    def after_sign_in_path_for(resource)
+      byebug
+        case resource
+        when Admin
+            admins_path       
+        when EndUser
+            end_users_path
+        end
+    end
+    
     # ログアウト、退会した場合の遷移先
     def after_sign_out_path_for(resource)
-      root_path(resource)
+      root_path
     end
 
     def configure_permitted_parameters

@@ -8,15 +8,14 @@ class ApplicationController < ActionController::Base
     # ログイン後の遷移先の設定
 
     def after_sign_in_path_for(resource)
-      byebug
         case resource
         when Admin
-            admins_path       
+            admins_path
         when EndUser
             end_users_path
         end
     end
-    
+
     # ログアウト、退会した場合の遷移先
     def after_sign_out_path_for(resource)
       root_path

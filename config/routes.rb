@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, controllers: {
       sessions: 'admins/sessions',
       passwords: 'admins/passwords'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     resources :products, except: [ :destroy ]
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
-  
+
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
       registrations: 'end_users/registrations',

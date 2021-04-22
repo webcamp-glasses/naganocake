@@ -1,0 +1,3 @@
+<% if end_user_signed_in? && @end_user.id == current_user.id %>
+        <%= link_to "退会", hide_eusers_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+<% end %>

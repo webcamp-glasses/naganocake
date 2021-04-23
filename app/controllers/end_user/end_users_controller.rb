@@ -1,5 +1,5 @@
 class EndUser::EndUsersController < ApplicationController
-  # before_action :authenticate_end_user!
+  before_action :authenticate_end_user!
   def show
     @end_user = current_end_user
   end
@@ -27,12 +27,12 @@ class EndUser::EndUsersController < ApplicationController
         render :edit
       end
   end
-  
-  
+
+
   private
-  
+
   def end_user_params
-    params.require(:end_user).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :email, :postal_code, :residence, :phone_numbar)
+    params.require(:end_user).permit(:last_name, :first_name, :last_kana_name, :first_kana_name, :email, :postal_code, :residence, :address, :phone_number )
   end
-  
+
 end

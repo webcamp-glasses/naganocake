@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     root 'products#index'
     
-    # URLの重複があったため、別途
+    # URLの重複があったため、別途指定
     get '/end_user/edit' => 'end_users#edit'
     get '/end_user' => 'end_users#show'
     put '/end_user' => 'end_users#update'

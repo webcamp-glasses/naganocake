@@ -25,3 +25,24 @@
 footer {
   border-top: solid 1.5px grey;
 }
+
+.product-box {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.product-item {
+  width: 600px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.product-text {
+  margin: 0 0 0 30px;
+}
+
+.subscript {
+  font-size: 5px;
+}

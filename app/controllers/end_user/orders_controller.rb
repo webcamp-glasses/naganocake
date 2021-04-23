@@ -1,4 +1,4 @@
-class EndUsers::OrdersController < ApplicationController
+class EndUser::OrdersController < ApplicationController
   before_action :authenticate_end_user!
   def new
   end

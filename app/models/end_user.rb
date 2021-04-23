@@ -24,8 +24,8 @@ class EndUser < ApplicationRecord
 
   # 退会したend_userを再ログインできなくするメソッド
   # is_deletedの定義をend_users_controllerに記述する（会員ステータスとは別物）
-  def active_for_authentication?
-    super && (self.is_deleted == false )
-  end
+  # def active_for_authentication?
+  #   super && (self.is_deleted == false )
+  # end
 
 end

@@ -11,15 +11,15 @@
   <div class="new-products">
     <h2 class="new-products-heading">新着商品</h2>
     <div class="new-products-index">
-      <% @products.each do |product| %>
-        <div class="products-item">
+      <% @newproducts.each do |newproduct| %>
+        <div class="newproducts-item">
           <!--商品画像-->
-          <%= attachment_image_tag product, :image, :fill, 150, 150, class:"products-item-img" %>
+          <%= attachment_image_tag newproduct, :image, :fill, 150, 150, class:"newproducts-item-img" %>
 
           <!--商品名・税込価格-->
-          <section class="products-text">
-            <h5 class="products-text-name"><%= product.name %></h5>
-            <h5 class="products-text-price">¥<%= product.price %></h5>
+          <section class="newproducts-text">
+            <h5 class="newproducts-text-name"><%= newproduct.name %></h5>
+            <h5 class="newproducts-text-price">¥<%= newproduct.price %></h5>
           </section>
         </div>
       <% end %>

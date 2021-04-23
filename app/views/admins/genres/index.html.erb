@@ -1,21 +1,23 @@
-
-
-<h2>ジャンル一覧・追加</h2>
- <%= render 'new', genre: @genre %>
-  <table class="table table-hover table-invaverse table-bordered">
-    <thead>
-      <tr>
-        <th>
-          ジャンル
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <% @genres.each do |genre| %>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admins_genre_path(genre)%></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+     <h3 class="text-left">ジャンル一覧・追加</h3>
+      <div class="col-md-3">
+ 　    　<%= render 'new', genre: @genre %>
+        <table class="table table-hover table-invaverse table-bordered">
+          <thead>
+            <tr>
+              <th>
+                ジャンル
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @genres.each do |genre| %>
+            <tr>
+                <td><%= genre.name %></td>
+                <td><%= link_to "編集する", edit_admins_genre_path(genre)%></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>

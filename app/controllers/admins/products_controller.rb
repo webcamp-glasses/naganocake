@@ -24,14 +24,21 @@ class Admins::ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
-    def add_tax_price
-    end
+    
 
     def edit
       @product = Product.find(params[:id])
     end
 
     def update
+       @product = Product.find(params[:id])
+      if @product.update(params[:id])
+        # 商品編集変更保存後その商品の詳細ページへ遷移
+         redirect_to admins_product_path(params[:id])
+      else
+        #バリデーションに引っ掛かる場合は新規登録画面へ遷移
+        render :edit
+      
     end
 
     private

@@ -16,6 +16,7 @@ class EndUser::EndUsersController < ApplicationController
   end
 
   def edit
+    @end_user = current_end_user
   end
 
   def update
@@ -26,6 +27,9 @@ class EndUser::EndUsersController < ApplicationController
         render :edit
       end
   end
+  
+  
+  private
   
   def end_user_params
     params.require(:end_user).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :email, :postal_code, :residence, :phone_numbar)

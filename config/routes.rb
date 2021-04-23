@@ -32,7 +32,12 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
     root 'products#index'
-
+    
+    # URLの重複があったため、別途
+    get '/end_user/edit' => 'end_users#edit'
+    get '/end_user' => 'end_users#show'
+    put '/end_user' => 'end_users#update'
+    
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do
       collection do

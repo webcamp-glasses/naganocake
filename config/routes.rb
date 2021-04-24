@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, controllers: {
       sessions: 'admins/sessions',
       passwords: 'admins/passwords'
@@ -17,10 +18,6 @@ Rails.application.routes.draw do
     resources :genres, only: [ :index, :create, :edit, :update ]
   end
 
-
-  # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
-  scope module: :end_users do
-
     # 必要なルーティングだけはかれるように設定
     devise_for :end_users, controllers: {
       registrations: 'end_users/registrations',
@@ -28,17 +25,26 @@ Rails.application.routes.draw do
       passwords: 'end_users/passwords'
     }
 
+  # 会員側のルーティングを設定（scpoe module:で管理ファイルを棲み分け）
+  scope module: :end_user do
+
     # end_user側のトップページとアバウトページ
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    root 'products#index'
+
+    # URLの重複があったため、別途指定
+    get '/end_user/edit' => 'end_users#edit'
+    get '/end_user' => 'end_users#show'
+    put '/end_user' => 'end_users#update'
 
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do
       collection do
         # 退会を確認する画面の表示
-        get '/end_users/hide' => 'end_users#hide'
+        get 'hide' => 'end_users#hide'
         # 退会処理を行うURLを設定
-        patch '/end_users/out' => 'end_users#out'
+        patch 'out'
       end
     end
 

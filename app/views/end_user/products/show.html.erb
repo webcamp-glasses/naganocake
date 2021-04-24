@@ -1,2 +1,22 @@
-<h1>EndUsers::Products#show</h1>
-<p>Find me in app/views/end_users/products/show.html.erb</p>
+<main>
+  <!--商品画像・商品名・商品説明・商品価格-->
+  <div class="product-box">
+    <div class="product-item">
+      <%= attachment_image_tag @product, :image, :fill, 150, 150, class:"products-item-img" %>
+      <section class="product-text">
+        <h5 class="product-text-name"><%= @product.name %></h5>
+        <p class="product-text-introduction"><%= @product.description %></p>
+        <h5 class="product-text-price">
+          ¥<%= @product.price %><span class="subscript">（税込）</span>
+        </h5>
+        <!--個数選択・カートに入れるボタン　※ @cart_itemsはまだ作成していません-->
+        <div>
+          <%= form_with model: @cart_items do |f| %>
+            <%= f.select :quantity, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

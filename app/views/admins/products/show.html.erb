@@ -1,2 +1,38 @@
-<h1>Admins::Products#show</h1>
-<p>Find me in app/views/admins/products/show.html.erb</p>
+<div class="row">
+  <div class="col-md-3">
+    <h4 class="text-center">商品詳細</h4>
+       <!--(モデル名, :カラム名, )-->
+       <%= attachment_image_tag(@product, :image, :fill, 300, 200) %>
+  </div>
+  <div class="col-md-7 offset-md-2">
+
+       <p>商品名<%= @product.name %></p>
+
+      <div class="field">
+        <p>商品説明<%= @product.description %></p><br>
+      </div>
+
+      <div class="field">
+        <p>ジャンル<%= @product.genre.name %></p><br>
+      </div>
+
+      <div class="field">
+        <p>税込価格<%= add_tax_price(@product.price).to_s(:delimited) %>
+           (<%= @product.price.to_s(:delimited) %>) 円<br>
+           (税抜価格)
+        </p><br>
+      </div>
+
+      <div class="field">
+        <p>
+         <!-- 販売ステータス-->
+         <!-- <%# if @product.is_s_active == true %>-->
+        　<!--<i class="fas fa-bullseye green"></i>販売中-->
+        	<!--<%# elsif @product.is_active == false %>-->
+         <!-- <i class="fas fa-bullseye black"></i>販売停止中-->
+         <!-- <%# end %>-->
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

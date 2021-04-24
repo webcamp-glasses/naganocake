@@ -6,7 +6,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      
+
       t.string :last_name
       t.string :first_name
       t.string :last_kana_name
@@ -14,7 +14,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       t.string :postal_code
       t.string :address
       t.string :phone_number
-      t.boolean :is_deleted, default: "false"
+      t.boolean :is_deleted, default: "false", null: false
 
       ## Recoverable
       t.string   :reset_password_token

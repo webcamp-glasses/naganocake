@@ -22,27 +22,32 @@
   border-bottom: solid 1.5px grey;
 }
 
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+.logo-size {
+  max-width: 100%;
+  height: auto;
+}
+
 footer {
   border-top: solid 1.5px grey;
 }
 
-.product-box {
-  width: 600px;
-  height: 600px;
-  margin: 0 auto;
+.about-heading {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 5px;
 }
 
-.product-item {
-  width: 600px;
-  margin: 30px auto;
-  display: flex;
-  justify-content: flex-start;
+.about-main-content {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
 }
 
-.product-text {
-  margin: 0 0 0 30px;
-}
-
-.subscript {
-  font-size: 5px;
+.about-main-content-text {
+  font-size: 20px;
 }

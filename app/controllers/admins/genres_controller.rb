@@ -1,4 +1,5 @@
 class Admins::GenresController < ApplicationController
+
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -21,6 +22,13 @@ class Admins::GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      # ジャンル変更保存後 ジャンル一覧ページに遷移させます
+      redirect_to admin_genres
+    else
+      render :edit
+    end
   end
 
   private

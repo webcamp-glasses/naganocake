@@ -3,4 +3,5 @@ module ApplicationHelper
   def add_tax_price(price)
     (price * 1.1).round
   end
+
 end

@@ -22,10 +22,21 @@
   border-bottom: solid 1.5px grey;
 }
 
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+.logo-size {
+  max-width: 100%;
+  height: auto;
+}
+
 footer {
   border-top: solid 1.5px grey;
 }
 
+<<<<<<< HEAD
 .products-heading {
   margin: 10px;
 }
@@ -46,4 +57,20 @@ footer {
 
 .products-text {
   text-align: left;
+=======
+.about-heading {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 5px;
+}
+
+.about-main-content {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.about-main-content-text {
+  font-size: 20px;
+>>>>>>> origin/develop
 }

@@ -38,6 +38,7 @@ class Admins::ProductsController < ApplicationController
       else
         #バリデーションに引っ掛かる場合は新規登録画面へ遷移
         render :edit
+      end
       
     end
 

@@ -33,13 +33,18 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     root 'products#index'
 
+    # URLの重複があったため、別途指定
+    get '/end_user/edit' => 'end_users#edit'
+    get '/end_user' => 'end_users#show'
+    put '/end_user' => 'end_users#update'
+
     # end_users_controller郡
     resource :end_users, only:[ :show, :edit, :update ] do
       collection do
         # 退会を確認する画面の表示
         get 'hide' => 'end_users#hide'
         # 退会処理を行うURLを設定
-        patch 'out' => 'end_users#out'
+        patch 'out' 
       end
     end
 

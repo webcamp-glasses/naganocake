@@ -29,10 +29,10 @@
               <%= end_user.email %>
             </td>
             <td class="align-middle">
-              <% if end_user.is_deleted == true %>
-              　退会済
+              <% if end_user.is_deleted == "退会" %>
+              　<p>退会済</p>
               <% else %>
-              　有効
+              　<p>有効</p>
               <% end %>
             </td>
           </tr>

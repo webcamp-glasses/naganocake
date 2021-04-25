@@ -44,6 +44,7 @@ Rails.application.routes.draw do
         # 退会を確認する画面の表示
         get 'hide' => 'end_users#hide'
         # 退会処理を行うURLを設定
+        post 'out'
         patch 'out'
       end
     end

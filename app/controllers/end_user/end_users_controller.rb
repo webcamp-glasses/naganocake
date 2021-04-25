@@ -9,9 +9,9 @@ class EndUser::EndUsersController < ApplicationController
 
   def out
     @end_user = current_end_user
-    @end_user.update(is_deleted: true)
+    @end_user.update(is_deleted: "退会")
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash[:notice] = ""
     redirect_to root_path
   end
 
@@ -32,7 +32,7 @@ class EndUser::EndUsersController < ApplicationController
   private
 
   def end_user_params
-    params.require(:end_user).permit(:last_name, :first_name, :last_kana_name, :first_kana_name, :email, :postal_code, :residence, :address, :phone_number )
+    params.require(:end_user).permit(:last_name, :first_name, :last_kana_name, :first_kana_name, :email, :postal_code, :residence, :address, :phone_number, :is_deleted )
   end
 
 end

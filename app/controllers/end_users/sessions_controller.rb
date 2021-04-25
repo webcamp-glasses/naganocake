@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 class EndUsers::SessionsController < Devise::SessionsController
+  
+  protected
+
+  def reject_end_user
+    end_user = EndUser.find_by(email: params[:end_user][:email].downcase)
+    if end_user
+      if (end_user.valid_password?(params[:end_user][:password]) && (user.active_for_authentication? == false))
+        redirect_to new_end_user_session_path
+      end
+    end
+  end
 
   # before_action :configure_sign_in_params, only: [:create]
 

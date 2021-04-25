@@ -1,5 +1,5 @@
 class Admins::EndUsersController < ApplicationController
-  
+
   def index
     @end_users = EndUser.all
   end
@@ -21,11 +21,11 @@ class Admins::EndUsersController < ApplicationController
       render :edit
     end
   end
-  
-  
+
+
   private
-  
+
   def end_user_params
-    params.require(:end_user).permit(:last_name, :first_name, :last_kana_name, :first_kana_name, :postal_code, :address, :phone_number, :is_deleted )
-  end  
+    params.require(:end_user).permit(:last_name, :first_name, :last_kana_name, :first_kana_name, :postal_code, :address, :phone_number, :is_deleted, :email )
+  end
 end

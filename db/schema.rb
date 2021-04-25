@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_04_22_104708) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "end_user_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_104708) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted", default: false
+    t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

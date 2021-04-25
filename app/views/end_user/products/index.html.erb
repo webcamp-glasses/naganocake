@@ -1,2 +1,18 @@
-<h1>EndUsers::Products#index</h1>
-<p>Find me in app/views/end_users/products/index.html.erb</p>
+<main class="products">
+  <h2 class="products-heading">商品一覧（全<%= @products.count %>件）</h2>
+  <div class="products-index">
+    <% @products.each do |product| %>
+      <div class="products-item">
+        <!--商品画像-->
+        <%= attachment_image_tag product, :image, :fill, 150, 150, class:"products-item-img" %>
+
+        <!--商品名・税込価格-->
+        <section class="products-text">
+          <h5 class="products-text-name"><%= product.name %></h5>
+          <h5 class="products-text-price">¥<%= product.price %></h5>
+        </section>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @products %>
+</main>

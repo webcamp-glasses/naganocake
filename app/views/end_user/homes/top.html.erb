@@ -1,29 +1,32 @@
 <main>
   <div class="top-main-visual">
-    <p class="top-main-visual-text">
-      ようこそ、ながのCAKEへ！<br>
-      このサイトは、ケーキ販売のECサイトになります。<br>
-      会員でない方も商品の閲覧はできますが、<br>
-      購入には会員登録が必要になります。
-    </p>
+    <div class="top-main-visual-content">
+      <p class="top-main-visual-text">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </p>
+    </div>
   </div>
 
-  <div class="new-products">
-    <h2 class="new-products-heading">新着商品</h2>
-    <div class="new-products-index">
+  <div class="products">
+    <h2 class="products-heading">新着商品</h2>
+    <div class="products-index">
       <% @newproducts.each do |newproduct| %>
-        <div class="newproducts-item">
+        <div class="products-item">
           <!--商品画像-->
           <%= attachment_image_tag newproduct, :image, :fill, 150, 150, class:"newproducts-item-img" %>
 
           <!--商品名・税込価格-->
-          <section class="newproducts-text">
-            <h5 class="newproducts-text-name"><%= newproduct.name %></h5>
-            <h5 class="newproducts-text-price">¥<%= newproduct.price %></h5>
+          <section class="products-text">
+            <h5 class="products-text-name"><%= newproduct.name %></h5>
+            <h5 class="products-text-price">¥<%= newproduct.price %></h5>
           </section>
         </div>
       <% end %>
     </div>
+    <p><%= link_to "全ての商品を見る>", products_path %></p>
   </div>
 </main>
 

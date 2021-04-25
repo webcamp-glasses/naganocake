@@ -17,7 +17,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+// ヘッダーに対するCSS
 .navbar {
   border-bottom: solid 1.5px grey;
 }
@@ -36,6 +36,57 @@ footer {
   border-top: solid 1.5px grey;
 }
 
+
+// Topページに対するCSS
+.top-main-visual {
+  width: 600px;
+  height: 280px;
+  text-align: center;
+  margin: 20px auto;
+  background-image: url("<%= asset_path("top.png") %>");
+  background-size: 100% auto;
+}
+
+.top-main-visual-content {
+  height: 280px;
+  margin: 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.top-main-visual-text {
+  padding-top: 80px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.products {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.products-heading {
+  margin: 10px;
+}
+
+.products-index {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products-item {
+  width: 200px;
+  text-align: center;
+  margin: 20px 20px;
+}
+
+.products-text {
+  text-align: left;
+}
+
+
+// Aboutページに対するCSS
 .about-heading {
   text-align: center;
   font-size: 50px;
@@ -51,3 +102,5 @@ footer {
 .about-main-content-text {
   font-size: 20px;
 }
+
+

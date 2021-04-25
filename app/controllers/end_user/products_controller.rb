@@ -3,7 +3,7 @@ class EndUser::ProductsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.all.reverse_order
   end
 
   def show

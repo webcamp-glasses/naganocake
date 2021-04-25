@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_04_22_104708) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "end_user_id"
+    t.integer "user_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_104708) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "end_user_id"
     t.integer "product_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_104708) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.boolean "is_deleted", default: false, null: false
+    t.boolean "is_deleted", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_104708) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "end_user_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_104708) do
 
   create_table "products", force: :cascade do |t|
     t.integer "genre_id"
-    t.integer "name"
+    t.string "name"
     t.text "description"
     t.integer "price"
     t.string "image_id"

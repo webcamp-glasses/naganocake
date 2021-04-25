@@ -29,9 +29,9 @@ class Admins::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(params[:id])
+    if @product.update(product_params)
       # 商品編集変更保存後その商品の詳細ページへ遷移
-      redirect_to admins_product_path(params[:id])
+      redirect_to admins_product_path(@product)
     else
       #バリデーションに引っ掛かる場合は新規登録画面へ遷移
       render :edit

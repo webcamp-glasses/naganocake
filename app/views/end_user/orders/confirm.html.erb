@@ -41,7 +41,7 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td>¥<%= billing_amount.to_s(:delimited) %></td>
+            <td>¥<%= billing_amount(@cart_items, @order).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>

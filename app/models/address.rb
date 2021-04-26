@@ -7,4 +7,8 @@ class Address < ApplicationRecord
             presence: true
   # 郵便番号は整数型で７文字でないとダメ
   validates :postal_code, numericality: { only_integer: true }, length: {is: 7}
+
+  def shipping_addresses
+    "〒" + self.postal_code + "　" + self.address + "　" + self.name
+  end
 end

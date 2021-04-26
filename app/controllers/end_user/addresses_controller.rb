@@ -30,7 +30,6 @@ class EndUser::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      flash[:success] = "配送先を変更しました"
       redirect_to addresses_path
     else
       render :edit

@@ -19,14 +19,14 @@
                 <div>
                   &emsp;&emsp;〒<%= current_end_user.postal_code %>&nbsp;<%= current_end_user.address %><br />
                   &emsp;&emsp;<%= end_user_full_name(current_end_user) %>
-              <% if @addresses != [] %>
+
                 </div>
               <%= f.radio_button :selection_address, "shipping_address" %><span>&nbsp;登録済住所から選択</span>
                 <div class="col-sm-12">
                   &emsp;&emsp;<%= f.collection_select :address, @addresses, :end_user_id, :shipping_addresses %>
                 </div>
-              <% end %>
 
+              <br />
               <%= f.radio_button :selection_address, "new_address" %><span>&nbsp;新しいお届け先</span>
                 <div>
                   <%= f.label :"郵便番号(ハイフンなし)", class: "col-sm-4 control-label" %>

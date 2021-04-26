@@ -17,6 +17,4 @@ class Order < ApplicationRecord
   validates :shipping_price, :total_price, numericality: { only_integer: true }
 
 
-
-
 end

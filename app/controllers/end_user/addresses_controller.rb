@@ -11,7 +11,6 @@ class EndUser::AddressesController < ApplicationController
     @address.end_user_id = current_end_user.id
     @addresses = current_end_user.address
     if @address.save
-      flash.now[:notice] = "新規配送先を登録しました"
       redirect_to addresses_path
     end
 

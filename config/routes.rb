@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     end
 
     # orders_controller郡（orders#showはorder_detailsの詳細）
-    resource :orders, only: [ :new, :index, :show, :create ] do
+    resources :orders, only: [ :new, :index, :show, :create ] do
       collection do
         # 注文情報確認画面の表示
         post 'orders/confirm' => 'orders#confirm'

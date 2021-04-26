@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def billing_amount(order)
-    total_price(current_cart) + order.shipping_price
+    order.total_price + order.shipping_price
   end
 
   def end_user_full_name(end_user)

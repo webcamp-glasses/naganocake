@@ -44,8 +44,8 @@ class EndUser::OrdersController < ApplicationController
         @order_items.price = cart_item.product.price
         @order_items.quantity = cart_item.quantity
         @order_items.save
-        current_cart.destroy_all
       end
+      current_cart.destroy_all
 
   end
 
@@ -53,9 +53,12 @@ class EndUser::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_end_user.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   private

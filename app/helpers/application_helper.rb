@@ -16,4 +16,13 @@ module ApplicationHelper
     return price
   end
 
+  def billing_amount(order)
+    total_price(current_cart) + order.shipping_price
+  end
+
+  def end_user_full_name(end_user)
+    end_user.last_name + end_user.first_name
+  end
+
+
 end

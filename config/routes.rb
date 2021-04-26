@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     resource :orders, only: [ :new, :index, :show, :create ] do
       collection do
         # 注文情報確認画面の表示
-        get 'orders/confirm' => 'orders#confirm'
+        post 'orders/confirm' => 'orders#confirm'
         # 注文完了画面の表示
         get 'orders/thanx' => 'orders#thanx'
       end

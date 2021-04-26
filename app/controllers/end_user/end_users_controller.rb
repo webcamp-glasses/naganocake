@@ -11,7 +11,6 @@ class EndUser::EndUsersController < ApplicationController
     @end_user = current_end_user
     @end_user.update(is_deleted: "退会")
     reset_session
-    flash[:notice] = ""
     redirect_to root_path
   end
 

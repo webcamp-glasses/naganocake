@@ -42,4 +42,3 @@ class EndUser::CartItemsController < ApplicationController
       params.require(:cart_item).permit(:quantity, :product_id)
     end
 end
-

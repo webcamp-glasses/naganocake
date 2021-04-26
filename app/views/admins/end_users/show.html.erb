@@ -39,13 +39,17 @@
             <td>会員ステータス</td>
             <td class="text-success"><%= @end_user.is_deleted %></td>
           </tr>
+          <tr>
+            <td>
+              <%= link_to "編集する", edit_admins_end_user_path(@end_user), class: "btn btn-success" %>
+            </td>
+            <td>
+              <%= link_to "注文履歴一覧を見る", admins_order_path(@end_user), class: "btn btn-primary" %>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
   
-  <div class="col-sm-3 mb-5">
-    <%= link_to "編集する", edit_admins_end_user_path(@end_user), class: "btn btn-success" %>
-    <%#= link_to "注文履歴一覧を見る", (@end_user), class="btn btn-primary" %>
-  </div>
 </div>

@@ -1,2 +1,15 @@
-<h1>Admins::Orders#show</h1>
-<p>Find me in app/views/admins/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4>注文履歴詳細</h4>
+  </div>
+  <div class="row">
+    <div>
+      <div><strong>購入者</strong></div>
+      <div>
+        <%= link_to admins_end_user_path(@order) do %>
+          <%= @order.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

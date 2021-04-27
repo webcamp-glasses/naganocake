@@ -8,6 +8,12 @@
 * ruby '2.6.3'
 * Rails 5.2.5
 
+## ER図
+[naganocake_er (6).pdf](https://github.com/webcamp-glasses/naganocake/files/6383413/naganocake_er.6.pdf)
+
+## アプリケーション詳細設計
+[アプリケーション詳細設計（glasses）_210417.pdf](https://github.com/webcamp-glasses/naganocake/files/6383412/glasses._210417.pdf)
+
 ## 機能一覧
 ### 会員側
 * ログイン・ログアウト機能（devise）

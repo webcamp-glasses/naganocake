@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def sub_price(sub)
-    (add_tax_price(sub.product.price) * sub.quantity)
+    add_tax_price(sub.product.price) * sub.quantity.to_i
   end
 
   def total_price(totals)

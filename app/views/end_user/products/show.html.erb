@@ -1,0 +1,23 @@
+<div class="container">
+  <!--商品画像・商品名・商品説明・商品価格-->
+  <div class="row">
+    <div class="col-sm-5 mt-5 mb-5">
+      <%= attachment_image_tag @product, :image, :fill, 150, 150, class:"products-item-img" %>
+    </div>
+      <div class="col-sm-3 mt-5 mb-5">
+        <h5><strong><%= @product.name %></strong></h5>
+        <p></p><%= @product.description %></p>
+        <h5>
+          ¥<%= add_tax_price(@product.price) %><span class="subscript">（税込）</span>
+        </h5>
+        <!--個数選択・カートに入れるボタン　※ @cart_itemsはまだ作成していません-->
+        <div>
+          <%= form_with model: @cart_items, url: cart_items_path, local: true do |f| %>
+            <%= f.hidden_field :product_id, :value => params[:id] %>
+            <%= f.select :quantity, [["1", 1], ["2", 2],["3", 3],["4", 4],["5", 5]], include_blank: "個数選択" %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>

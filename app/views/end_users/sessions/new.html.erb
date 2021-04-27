@@ -1,0 +1,43 @@
+<div class="row mt-3">
+  <h3 class="offset-md-2">ログイン</h3>
+</div>
+
+<div class="row">
+  <h5 class="offset-md-2 mt-3 mb-3">会員の方はこちらからログイン</h5>
+</div>
+
+<div class="row">
+  <div class="offset-md-2">
+    <%= form_with model: @end_user, url:end_user_session_path, local: true  do |f| %>
+    <%= render "end_users/shared/error_messages", resource:  resource %>
+
+
+    <from class="form">
+      <div class="form-group mr-5">
+        <%= f.label :"メールアドレス", class: "mr-5" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample.example.com" %>
+      </div>
+    </form>
+
+    <from class="form">
+      <div class="form-group">
+        <%= f.label :"パスワード　　", class: "mr-5" %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </from>
+
+    <div class="actions mt-3 mb-3">
+      <%= f.submit "ログイン", class: "btn btn-xl-5 btn-success" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mt-5 mb-auto">
+  <div class="col-sm-12">
+    <h5 class="offset-md-2">会員登録がお済みで無い方</h5>
+      <p class="offset-md-3">
+        <%= link_to "こちら", new_registration_path(resource_name) %>から新規登録を行なってください。
+      </p>
+  </div>
+</div>

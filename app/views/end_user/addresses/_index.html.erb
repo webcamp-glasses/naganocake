@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% addresses.each do |address| %>
+      <tr>
+        <td>
+          <%= address.postal_code %>
+        </td>
+        <td class="text-left">
+          <%= address.address %>
+        </td>
+        <td class="text-left">
+          <%= address.name %>
+        </td>
+        <td>
+          <%= link_to "編集する", edit_address_path(address), class: "btn-sm btn-primary" %>
+        </td>
+        <td>
+          <%= link_to "削除する", address_path(address), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>

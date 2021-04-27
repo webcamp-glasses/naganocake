@@ -1,0 +1,19 @@
+<main class="products">
+  <h2 class="products-heading">商品一覧（全<%= @products.count %>件）</h2>
+  <div class="products-index">
+    <% @products.each do |product| %>
+      <div class="products-item">
+        <!--商品画像-->
+        <%= link_to product_path(product) do %>
+          <%= attachment_image_tag product, :image, :fill, 150, 150, class:"products-item-img" %>
+        <% end %>
+        <!--商品名・税込価格-->
+        <section class="products-text">
+          <h5 class="products-text-name"><%= link_to product.name, product_path(product) %></h5>
+          <h5 class="products-text-price">¥<%= add_tax_price(product.price) %></h5>
+        </section>
+      </div>
+    <% end %>
+  </div>
+  
+</main>

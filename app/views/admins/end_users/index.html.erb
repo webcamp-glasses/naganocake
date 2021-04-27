@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <h4 class="col-lg-12 mt-5 mb-5">会員一覧</h4>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 col-md-offset-2 mb-5">
+      <table class="table table-rows">
+        <thead class="thead-light">
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @end_users.each do |end_user| %>
+          <tr>
+            <td class="align-middle">
+              <%= end_user.id %>
+            </td>
+            <td class="align-middle">
+              <%= link_to admins_end_user_path(end_user) do %>
+              <%= end_user.last_name %> <%= end_user.first_name %>
+              <% end %>
+            </td>
+            <td class="align-middle">
+              <%= end_user.email %>
+            </td>
+            <td class="align-middle">
+              <% if end_user.is_deleted == "退会" %>
+              　<p>退会済</p>
+              <% else %>
+              　<p>有効</p>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

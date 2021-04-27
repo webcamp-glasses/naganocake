@@ -6,7 +6,7 @@
       <div class="col-xs-4 mr-5 mb-2"><strong>購入者</strong></div>
       <div class="col-xs-6 ml-5 mb-2">
         <%= link_to admins_end_user_path(@order) do %>
-          &emsp;<%= @order.name %>
+          &emsp;<%= @order.end_user.last_name %>
         <% end %>
       </div>
   </div>
@@ -58,7 +58,7 @@
             <td class="text-center"><%= order_detail.quantity %></td>
             <td class="text-center">¥<%= sub_price(order_detail).to_s(:delimited) %></td>
             <td class="text-center">
-              <%= form_with model: order_detail, url: {controller: "order_details", action: "update"}, method: :patch, local: true do |f| %>
+              <%= form_with model: order_detail, url: admins_order_detail_update_path(@order,order_detail), method: :patch, local: true do |f| %>
                 <%= f.select :product_status, OrderDetail.product_statuses.keys, class: "order_status" %>
                 &emsp;<%= f.submit "更新", class: "btn btn-sm btn-success" %>
               <% end %>

@@ -36,7 +36,9 @@ class EndUser::OrdersController < ApplicationController
     @order = current_end_user.orders.new(order_params)
     @cart_items = current_cart
     @order.save
-    redirect_to orders_thanx_orders_path
+    if params[:order][:ship] == "1"
+      current_end_user.addresses.create(address_params)
+    end
       @cart_items.each do |cart_item|
         @order_items = @order.order_details.new
         @order_items.product_id = cart_item.product.id
@@ -46,8 +48,9 @@ class EndUser::OrdersController < ApplicationController
         @order_items.save
       end
       current_cart.destroy_all
-
+      redirect_to orders_thanx_orders_path
   end
+  
 
   def thanx
   end
@@ -66,4 +69,8 @@ class EndUser::OrdersController < ApplicationController
       params.require(:order).permit(:payment_method, :address, :postal_code, :name, :total_price)
     end
 
+    def address_params
+      params.require(:order).permit(:postal_code, :address, :name)
+    end
+    
 end

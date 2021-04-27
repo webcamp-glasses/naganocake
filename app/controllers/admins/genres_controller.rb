@@ -25,7 +25,7 @@ class Admins::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
       # ジャンル変更保存後 ジャンル一覧ページに遷移させます
-      redirect_to admin_genres
+      redirect_to admins_genres_path
     else
       render :edit
     end

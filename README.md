@@ -1,24 +1,38 @@
-# README
+# ながのCAKE
+　
+ 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト
+ 管理者側と会員側に分かれており、管理者側からさまざまな管理が行える。（機能一覧参照）
+ 
+## 開発環境
+* ruby '2.6.3'
+* Rails 5.2.5
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 機能一覧
+### 会員側
+* ログイン・ログアウト機能（devise）
+* 商品機能一覧表示機能
+* 商品詳細情報表示機能
+* カート機能
+* 注文機能
+* 会員情報編集機能
+* 退会機能
+* 配送先追加・編集機能
+* 注文履歴一覧表示機能
+* 注文履歴詳細表示機能
+### 管理者側
+* ログイン・ログアウト機能（devise）
+* 注文履歴一覧機能
+* 注文履歴詳細表示機能
+* 注文ステータス機能
+* 会員一覧表示機能
+* 会員詳細情報表示機能
+* 会員ステータス機能
+* 商品一覧表示機能
+* 商品詳細情報表示機能
+* 商品情報新規登録・編集機能（refile）
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発メンバー
+* よっしー
+* まなさん
+* ガッキー
+* おのりょう

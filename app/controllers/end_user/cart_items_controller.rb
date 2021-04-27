@@ -12,8 +12,8 @@ class EndUser::CartItemsController < ApplicationController
     @cart_item = current_end_user.cart_items.new(params_cart_item)
     @update_cart_item = CartItem.find_by(product: @cart_item.product)
     if @update_cart_item.present? && @cart_item.valid?
-      @cart_item.quantity += @update_cart_item.quantity
-      @update_cart_item.destroy
+        @cart_item.quantity += @update_cart_item.quantity
+        @update_cart_item.destroy
     end
     @cart_item.save
     redirect_to cart_items_path

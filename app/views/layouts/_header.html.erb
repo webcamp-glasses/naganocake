@@ -16,7 +16,7 @@
         <% if admin_signed_in? %>
           <li><%= link_to "About", about_path, class: "btn btn-outline-secondary mx-3 my-1" %></li>
           <li><%= link_to "商品一覧", admins_products_path, class: "btn btn-outline-secondary mx-3 my-1" %></li>
-          <li><%= link_to "会員一覧", admins_end_users_path, class: "btn btn-outline-secondary mx-3 my-1" %></li>
+          <li><%= link_to "会員一覧", admins_end_users_path(order_sort: 0), class: "btn btn-outline-secondary mx-3 my-1" %></li>
           <li><%= link_to "注文履歴一覧", admins_path, class: "btn btn-outline-secondary mx-3 my-1" %></li>
           <li><%= link_to "ジャンル一覧", admins_genres_path, class: "btn btn-outline-secondary mx-3 my-1" %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mx-3 my-1" %></li>

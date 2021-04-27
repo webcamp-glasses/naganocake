@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h4 class-"col-sm-12">注文情報確認</h4>
+    <h4 class="col-sm-12">注文情報確認</h4>
   </div>
   <div class="row">
     <div class="col-sm-8">
@@ -41,7 +41,7 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td>¥<%= (total_price(@cart_items) + @order.shipping_price).to_s(:delimited) %></td>
+            <td>¥<%= billing_amount(@cart_items, @order).to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
@@ -50,7 +50,7 @@
       <h4><strong>支払方法</strong></h4>
         <div>&emsp;<%= @order.payment_method %></div>
       <h4><strong>お届け先</strong></h4>
-        <div>&emsp;<%= @order.postal_code %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></div>
+        <div>&emsp;〒<%= @order.postal_code %>&emsp;<%= @order.address %>&emsp;<%= @order.name %></div>
     </div>
     <div class="col-sm-12 ">
       <%= form_with model: @order, url: orders_path, local: true do |f| %>
@@ -60,7 +60,7 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price %>
         <%= f.hidden_field :ship, value: @ship %>
-        <%= f.submit "注文を確定する", class: "btn btn-success" %>
+        <%= f.submit "注文を確定する", class: "btn btn-success mt-3 mb-3" %>
       <% end %>
     </div>
   </div>

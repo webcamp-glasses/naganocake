@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     # トップページは「注文履歴の一覧画面」とする
     resources :orders, only: [ :show, :update ]
-    get '/admin/orders/:id/order_details/:id' => 'order_details#update'
+    patch '/orders/:order_id/order_details/:id' => 'order_details#update', as: 'order_detail_update'
     resources :end_users, only: [ :index, :show, :edit, :update ]
     resources :products, except: [ :destroy ]
     resources :genres, only: [ :index, :create, :edit, :update ]
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     end
 
     # orders_controller郡（orders#showはorder_detailsの詳細）
-    resource :orders, only: [ :new, :index, :show, :create ] do
+    resources :orders, only: [ :new, :index, :show, :create ] do
       collection do
         # 注文情報確認画面の表示
         post 'orders/confirm' => 'orders#confirm'

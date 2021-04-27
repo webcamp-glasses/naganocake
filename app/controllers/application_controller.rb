@@ -12,13 +12,19 @@ class ApplicationController < ActionController::Base
         when Admin
             admins_path
         when EndUser
-            end_users_path
+            root_path
         end
     end
 
     # ログアウト、退会した場合の遷移先
-    def after_sign_out_path_for(resource)
-      root_path
+    def after_sign_out_path_for(resource_or_scope)
+        if resource_or_scope == :end_user
+          root_path
+        elsif resource_or_scope == :admin
+          new_admin_session_path
+        else
+          root_path
+        end
     end
 
     def configure_permitted_parameters
@@ -33,8 +39,6 @@ class ApplicationController < ActionController::Base
     def current_cart
       @cart_items = current_end_user.cart_items
     end
-
-
 
 
 end

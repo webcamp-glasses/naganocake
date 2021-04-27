@@ -2,7 +2,7 @@
     <div class="col-lg-12 mt-5">
       <%= @end_user.last_name %> <%= @end_user.first_name %> さんの会員詳細
     </div>
-    
+
   <div class="row">
     <div class="col-lg-6 mt-5 mb-">
       <table class="table table-borderless">
@@ -44,12 +44,12 @@
               <%= link_to "編集する", edit_admins_end_user_path(@end_user), class: "btn btn-success" %>
             </td>
             <td>
-              <%= link_to "注文履歴一覧を見る", admins_order_path(@end_user), class: "btn btn-primary" %>
+              <%= link_to "注文履歴一覧を見る", admins_path(end_user_id: @end_user.id, order_sort: 1), class: "btn btn-primary" %>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  
+
 </div>
